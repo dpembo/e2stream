@@ -1,0 +1,707 @@
+/* Settings */
+
+#zapSection 
+{
+	position: absolute;
+	top: 125px;
+}
+
+.fields_running
+{
+	font-size: 18pt;
+	top: 330px;
+	position: absolute;
+	z-index: 300px;
+	display:none;
+}
+
+.fields_running_popup
+{
+	font-size: 20pt;
+	top: 260px;
+	position: absolute;
+	z-index: 300px;	
+}
+
+.fields_running_popup2
+{
+	font-size: 20pt;
+	top: 50px;
+	position: absolute;
+	z-index: 300px;	
+}
+
+#iplabel
+{
+	position:absolute;
+	left: 10px;
+	top: 10px;
+	z-index:300;
+}
+#f1
+{
+	position:absolute;
+	top: 0px;
+	left: 160px;
+	width: 90px;
+	z-index:300;	
+}
+
+#f1point
+{
+	position: absolute;
+	left: 263px;
+	top: 22px;
+	z-index:300;
+}
+#f2
+{
+	position:absolute;
+	top: 0px;
+	left: 280px;
+	width: 90px;
+	z-index:300;	
+}
+#f2point
+{
+	position: absolute;
+	left: 383px;
+	top: 22px;	
+	z-index:300;
+}
+#f3
+{
+	position:absolute;
+	top: 0px;
+	left: 400px;
+	width: 90px;
+	z-index:300;
+}
+
+#f3point
+{
+	position: absolute;
+	left: 503px;
+	top: 22px;
+	z-index:300;
+}
+#f4
+{
+	position:absolute;
+	top: 0px;
+	left: 520px;
+	width: 90px;
+	z-index:300;	
+}
+
+
+#streamlabel
+{
+	position: absolute;
+	left: 0px;
+	top: 69px;
+	z-index:300;
+}
+
+#f5
+{
+	position:absolute;
+	top: 55px;
+	left: 160px;
+	width: 150px;
+	z-index:300;
+}
+
+
+#f6
+{
+	position: absolute;
+	top: 55px;
+	left: 520px;
+	width: 150px;
+	z-index:300;
+}
+
+#f11 {
+position: absolute;
+left: 40px;
+top: 40px;
+width:40px;
+z-index:300;
+border-radius: 27px;
+}
+
+#f12 {
+position: absolute;
+left: 170px;
+top: 40px;
+width:40px;
+z-index:300;
+border-radius: 27px;
+}
+
+#f17 {
+position: absolute;
+left: 40px;
+top: 40px;
+width:50px;
+z-index:300;
+border-radius: 27px;
+}
+
+#f18 {
+position: absolute;
+left: 170px;
+top: 40px;
+width:50px;
+z-index:300;
+border-radius: 27px;
+}
+
+#f13
+{
+	position: absolute;
+	top: 122px;
+	width: 650px;
+	left: 70px;
+	z-index:300;
+}
+
+#f19
+{
+	position: absolute;
+	top: 108px;
+	width: 650px;
+	left: 70px;
+	z-index:300;
+}
+
+#f7 {
+position: absolute;
+top: -8px;
+left:370px;
+width:40px;
+z-index:300;
+border-radius: 27px;
+}
+
+#f8 {
+position: absolute;
+left: 500px;
+top: -8px;
+width:40px;
+z-index:300;
+border-radius: 27px;
+}
+
+
+#translabel
+{
+	position: absolute;
+	top: 69px;
+	left: 330px;
+	z-index:300;
+}
+
+#numlabel 
+{
+	left: 40px;
+	z-index: 300;
+	top: 13px;
+}
+
+#f17label 
+{
+	position: absolute;
+	left: 100px;
+	top: 60px;
+	z-index:300;
+}
+
+#f18label 
+{
+	position: absolute;
+	left: 235px;
+	top: 60px;
+	z-index:300;
+}
+
+#f11label 
+{
+	position: absolute;
+	left: 100px;
+	top: 50px;
+	z-index:300;
+}
+
+#f11label2 
+{
+	position: absolute;
+	left: 235px;
+	top: 50px;
+	z-index:300;
+}
+
+#f7label 
+{
+	position: absolute;
+	left: 424px;
+	top: 0px;
+	z-index:300;
+}
+
+#f7label2 
+{
+	position: absolute;
+	left: 555px;
+	top: 0px;
+	z-index:300;
+}
+
+
+#StartingBouquet 
+{
+	top: 90px;
+	left: 40px;
+	position: absolute;
+	z-index:300;
+}
+
+#f13pre 
+{
+	left: 40px;
+	top: 100px;
+	width: 40px;
+	height: 30px;
+	display: block;
+	z-index:300;
+}
+
+#f13post 
+{
+	left: 740px;
+	top: 70px;
+	width: 40px;
+	height: 30px;
+	display: block;
+	z-index:300;
+}
+
+#f19pre 
+{
+	left: 40px;
+	top: 120px;
+	width: 40px;
+	height: 30px;
+	display: block;
+	z-index:300;
+}
+
+#f19post 
+{
+	left: 740px;
+	top: 90px;
+	width: 40px;
+	height: 30px;
+	display: block;
+	z-index:300;
+}
+
+
+.transcodeDisabled 
+{
+	background-color: rgba(0,0,0,0.9);
+	width: 400px;
+	height: 55px;
+	left: 330px;
+	top: 53px;
+	z-index: 301;
+}
+
+.transcode2Disabled 
+{
+background-color: rgba(0,0,0,0.9);
+width: 600px;
+height: 72px;
+left: 0px;
+top: 117px;
+z-index: 301;
+}
+
+
+
+#f12pre 
+{
+	padding-right: 10px;
+	top: -10px;
+}
+
+#f12post 
+{
+	padding-left: 10px;
+	top: -10px;
+}
+
+
+
+/* -------------------------------------------------------------------------------------- */
+/* Avanced Settings */
+
+#playerImpl 
+{
+	clear: right;
+	display: block;
+}
+
+#a1 {
+position: absolute;
+float: left;
+display: block;
+top: 25px;
+}
+
+#a2 {
+position: absolute;
+display: block;
+float: left;
+top: 25px;
+left: 170px;
+}
+
+#a1label {
+display: block;
+float: left;
+position: absolute;
+left: 65px;
+top: 35px;
+}
+
+#a2label {
+position: absolute;
+float: left;
+display: block;
+top: 35px;
+left: 230px;
+}
+
+#playerlabel {
+top: -10px;
+}
+
+#lockBouquetLabel{
+top: 5px;
+}
+
+#multiTranscoderSection 
+{
+	display: block;
+	float: left;
+	position: absolute;
+	top: 115px;
+}
+
+#mtlabel 
+{
+	display: block;
+	float: left;
+	top: 55px;
+	font-style: italic;
+}
+
+#a6Label 
+{
+padding-left: 10px;
+}
+
+
+#a3label
+{
+	top: -12px;
+}
+
+#a4label
+{
+	top: -12px;	
+	padding-left:30px;
+	left: 55px;
+}
+
+#a5
+{
+	width:200px;
+}
+
+.transcodeFieldsDisabled 
+{
+	width: 100%;
+	height: 200px;
+	display: block;
+	z-index: 1000;
+	float: left;
+	position: absolute;
+	top: 0;
+	background-color: rgba(0,0,0,0.9);
+	top: 82px;
+}
+
+div#advancedSettingsPanel #instructions 
+{
+	font-weight: bold;
+}
+
+.fieldline 
+{
+	padding-bottom: 5px;
+}
+
+#transcodeSection 
+{
+	position: absolute;
+	top: 180px;
+}
+
+#transEnablelabel 
+{
+	top: -12px;
+}
+
+#f9 
+{
+	left: 140px;
+}
+
+#f9label 
+{
+	left: 140px;
+	top: -12px;
+}
+
+#f10 
+{
+	left: 170px;
+}
+
+#f10label 
+{
+	top: -12px;
+	left: 140px;
+}
+#f10label2 
+{
+	left: 173px;
+	top: -12px;
+}
+
+#a4 
+{
+left: 80px;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* Parental Controls */
+
+#p5
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 00px;
+	top: 60px;
+}
+
+#p5label
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 55px;
+	top: 75px;
+}
+
+#p6
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 110px;
+	top: 60px;
+}
+
+#p6label
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 165px;
+	top: 75px;
+}
+
+#lockBouquetSection 
+{
+top: 100px;
+}
+
+#lockSettingslabel 
+{
+top: 20px;
+}
+
+
+#p7
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 00px;
+	top: 40px;
+}
+
+#p7label
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 55px;
+	top: 55PX;
+}
+
+#p8
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 110px;
+	top: 40px;
+}
+
+#p8label
+{
+	position: absolute;
+	display: block;
+	float: left;
+	left: 165px;
+	top: 55px;
+}
+
+#p1
+{
+	width:40px;
+}
+#p2
+{
+	width:40px;
+}
+#p3
+{
+	width:40px;
+}
+#p4
+{
+	width:40px;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* COMMON */
+
+#instructions
+{
+	position: absolute;
+	top: -40px;
+	width: 90%;
+	font-size: 17pt;
+	z-index:300;
+		
+}
+
+.radioSelected 
+{
+	background-color: #000000;
+	display: block;
+	width: 25px;
+	height: 25px;
+	left: 6px;
+	top: 6px;
+	border: 2px solid #444444;
+	border-radius: 25px;
+	z-index:300;
+}
+
+.fields
+{
+	top: 100px;
+	font-size: 18pt;
+	left: 40px;
+	z-index: 300px;
+}
+
+.inputTxt
+{
+	font-size:24pt;
+	border: 4px solid #dadada;
+    border-radius: 7px;
+    width:100px;
+    height: 40px;
+    display:inline-block;
+	background-color: #ffffff;
+	color:#000000;
+	box-shadow: 0 0 20px #000000;
+	text-align: center;
+	line-height: 50px;
+}
+
+.inputTxtfocus
+{
+	width:100px;
+    height: 40px;
+	font-size:24pt;
+	border: 4px solid #dadada;
+	background-color: #ffffff;
+    border-radius: 7px;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 20px #9ecaed;
+    display:inline-block;
+    color:#000000;
+    text-align: center;
+	line-height: 50px;
+}
+
+.inputRadio 
+{
+	width:40px;
+	border-radius: 27px;
+	height: 40px;
+	font-size:24pt;
+	border: 4px solid #dadada;
+	background-color: #ffffff;
+	outline: none;
+	display:inline-block;
+	color:#000000;
+	text-align: center;
+	line-height: 50px;
+}
+
+
+.inputRadiofocus
+{
+	width:40px;
+	border-radius: 27px;
+    height: 40px;
+	font-size:24pt;
+	border: 4px solid #dadada;
+	background-color: #ffffff;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 20px #9ecaed;
+    display:inline-block;
+    color:#000000;
+    text-align: center;
+	line-height: 50px;
+}
+
+.verticalCentreTextFieldLabel
+{
+	top: -8px;
+}

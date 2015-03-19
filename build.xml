@@ -1,0 +1,30 @@
+
+<project name="E2Stream" default="dist" basedir=".">
+    <description>E2Stream smart TV App Build</description>
+
+<property environment="env" />
+	
+<target name="dist">
+
+	  <zip destfile="${basedir}/../app/e2stream.pkg"
+	       basedir="."
+	       excludes=".settings/**,.svn,.project,build.xml"
+	  />
+	
+</target>
+
+<target name="version">
+	<replace file="${basedir}/index.html" token="X.X" value="${setversion}"/>
+	<replace file="${basedir}/config.xml" token="0.0" value="${setversion}"/>
+</target>
+
+<target name="clearDebug">
+	<replace file="${basedir}/Javascript/Main.js" token="CLEAR: true" value="CLEAR: false"/>
+	<replace file="${basedir}/Javascript/Main.js" token="DEBUG: true" value="DEBUG: false"/>
+</target>
+	
+<target name="legacyBuild">
+	<replace file="${basedir}/Javascript/Data.js" token='playerName			: "Default"' value='playerName			: "Legacy"'/>
+	<replace file="${basedir}/Index.html" token='Javascript/PlayerNew.js' value='Javascript/PlayerLegacy.js'/>
+</target>
+</project>

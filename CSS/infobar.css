@@ -1,0 +1,513 @@
+/* ==== INFOBAR DETAIL ===== */
+
+#nowHeader
+{
+	background-image: url("../Images/BgLogo.PNG");
+	background-repeat: repeat-x;
+	font-size: 25px;
+	padding-top: 3px;
+	padding-left: 20px;
+	margin-left: 5px;
+	color: #ffffff;
+	position: absolute;
+	top: 10px;
+	left: 5px;
+	width: 425px;
+	z-index: 310;
+}
+
+#nextHeader
+{
+background-image: url("../Images/BgLogo.PNG");
+background-repeat: repeat-x;
+font-size: 25px;
+padding-top: 3px;
+padding-left: 20px;
+margin-left: 5px;
+color: #ffffff;
+position: absolute;
+top: 10px;
+left: 460px;
+width: 425px;
+z-index: 310;
+}
+
+
+#infobarDetail 
+{
+	background-color: #000000;
+	color: white;
+	position: absolute;
+	top: 0px;
+	z-index: 400;
+	left: 20px;
+	width: 920px;
+	height: 390px;
+	display:none;
+}
+
+#nowDetail 
+{
+	display: block;
+	float: left;
+	width: 445px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 335px;
+	top: 35px;
+	position: absolute;
+}
+
+#nextDetail 
+{
+	display: block;
+	float: right;
+	width: 445px;
+	margin-right: 10px;
+	margin-top: 10px;
+	left: 465px;
+	height: 335px;
+	top: 35px;
+	position: absolute;
+}
+
+#nowDetail-title 
+{
+	font-size: 20pt;
+	top: 00px;
+	height: 80px;
+	padding-left: 20px;
+	padding-top: 20px;
+	background-color: #222222;
+	border-bottom: 1px solid #111111;
+}
+
+#nowDetail-extended 
+{
+	padding-left: 10px;
+	font-size: 11pt;
+	background-color: #222222;
+	margin-top: 2px;
+	padding-right: 10px;
+	padding-top: 10px;
+	height: 220px;
+	overflow: hidden;
+	
+}
+
+#nowDetail-endTime 
+{
+	display: none;
+}
+
+#nowDetail-startTime 
+{
+	display: none;
+}
+
+#nextDetail-title 
+{
+	font-size: 20pt;
+	top: 00px;
+	height: 80px;
+	padding-left: 20px;
+	padding-top: 20px;
+	background-color: #222222;
+	border-bottom: 1px solid #111111;
+}
+
+#nextDetail-extended 
+{
+	padding-left: 10px;
+	font-size: 11pt;
+	background-color: #222222;
+	margin-top: 2px;
+	padding-right: 10px;
+	padding-top: 10px;
+	height: 220px;
+	overflow: hidden;
+}
+
+#nextDetail-endTime 
+{
+	display: none;
+}
+
+#nextDetail-startTime 
+{
+	display: none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ==== STANDARD INFO BAR ===== */
+
+#infobar 
+{
+	display:none;
+	background-color: #000000;
+	color:white;
+	position: absolute;
+	top: 400px;
+	z-index: 400;
+	left: 20px;
+	width: 920px;
+	height: 115px;
+}
+
+
+#infobar-channel
+{
+	position: absolute;
+	top:5px;
+	height: 35px;
+	width: 880px;
+    background-image: url("../Images/BgLogo.PNG");
+    background-repeat:repeat-x;
+    font-size:25px;
+    padding-top:3px;
+    padding-left:20px;
+    margin-left:10px;
+    color:#ffffff;
+}
+
+#infobar-piconlarge 
+{
+	position: absolute;
+	left: 810px;
+	top: 50px;
+}
+
+#infobar-time 
+{
+	position: absolute;
+	left: 845px;
+	font-size: 14pt;
+	top: 10px;
+}
+
+#infobar-nextDesc 
+{
+	background-color: #222222;
+	left: 440px;
+	position: absolute;
+	top: 70px;
+	font-size: 14pt;
+	width: 350px;
+	padding: 5px;
+}
+
+#infobar-nowDesc 
+{
+	background-color: #222222;
+	left: 20px;
+	position: absolute;
+	top: 70px;
+	font-size: 14pt;
+	width: 400px;
+	padding: 5px;
+}
+
+#infobar-nowTime 
+{
+	position: absolute;
+	left: 25px;
+	top: 50px;
+}
+
+#infobar-nextTime 
+{
+	position: absolute;
+	top: 50px;
+	left: 445px;
+}
+
+#infobar-audiostreams
+{
+	position: absolute;
+	display: none;
+	left: 790px;
+	top: 5px;
+	font-size: 10pt;
+	width: 100px;
+}
+
+#infobar-audiostreams-text
+{
+	top: -28px;
+	left: 20px;
+	font-size: 12pt;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ==== RECORD BAR ===== */
+
+#recbar-audiostreams
+{
+	position: absolute;
+	display: none;
+	left: 790px;
+	top: 5px;
+	font-size: 10pt;
+	width: 100px;
+}
+
+#recbar-audiostreams-text
+{
+	top: -28px;
+	left: 20px;
+	font-size: 12pt;
+}
+
+
+#recbar 
+{
+	display:none;
+	background-color: #000000;
+	color:white;
+	position: absolute;
+	top: 400px;
+	z-index: 400;
+	left: 20px;
+	width: 920px;
+	height: 115px;
+}
+
+#recbar-channel
+{
+	position: absolute;
+	top:5px;
+	height: 35px;
+	width: 880px;
+    background-image: url("../Images/BgLogo.PNG");
+    background-repeat:repeat-x;
+    font-size:25px;
+    padding-top:3px;
+    padding-left:20px;
+    margin-left:10px;
+    color:#ffffff;
+}
+
+
+#recbar-time 
+{
+	position: absolute;
+	left: 845px;
+	font-size: 14pt;
+	top: 10px;
+}
+
+#recbar-desc 
+{
+	background-color: #222222;
+	left: 20px;
+	position: absolute;
+	top: 70px;
+	font-size: 14pt;
+	width: 600px;
+	padding: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#recbar-remain
+{
+	background-color: #222222;
+	left: 640px;
+	position: absolute;
+	top: 70px;
+	font-size: 14pt;
+	width: 250px;
+	padding: 5px;
+}
+
+#recbctext 
+{
+	top: -5px;
+}
+
+.recsText {
+	top: -34px;
+	left: -12px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+	float: left;
+	width: 315px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ==== AUDIO BAR ===== */
+
+#audiobar
+{
+	display:none;
+	background-color: #000000;
+	color: white;
+	position: absolute;
+	top: -10px;
+	z-index: 500;
+	left: 740px;
+	width: 210px;
+	height: 75px;
+}
+
+#audiobar-header
+{
+	background-image: url("../Images/BgLogo.PNG");
+    background-repeat:repeat-x;	
+    font-size:25px;
+    padding-top:3px;
+    padding-left:20px;
+    margin-left:10px;
+    color:#ffffff;
+    position:absolute;
+    top:2px;
+    width: 170px;
+}
+
+#audiobar-text
+{
+	position: absolute;
+	top: 40px;
+	padding-left: 20px;
+	font-size: 16pt;
+	left: 60px;
+}
+
+#audiobar-icon
+{
+	position: absolute;
+	top: 37px;
+	left: 40px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ==== ALERT BAR ===== */
+
+#alertbar
+{
+	display:none;
+	background-color: #000000;
+	color: white;
+	position: absolute;
+	top: -10px;
+	z-index: 500;
+	left: 530px;
+	width: 410px;
+	height: 75px;
+}
+
+#alertbar-header
+{
+	background-image: url("../Images/BgLogo.PNG");
+    background-repeat:repeat-x;	
+    font-size:25px;
+    padding-top:3px;
+    padding-left:20px;
+    margin-left:5px;
+    color:#ffffff;
+    position:absolute;
+    top:2px;
+    width: 380px;
+}
+
+#alertbar-text
+{
+	position: absolute;
+	top: 40px;
+	padding-left: 20px;
+	font-size: 16pt;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ==== VOLUME OSD ===== */
+
+
+#muteoff
+{
+	display:none;
+	position: absolute;
+	top: 20px;
+	z-index: 900;
+	left: 20px;
+}
+
+#muteon
+{
+	display:none;
+	position: absolute;
+	top: 20px;
+	z-index: 900;
+	left: 20px;
+}
+
+#volumeSlider
+{
+	display:none;
+	position: absolute;
+	top: 86px;
+	width: 30px;
+	height: 215px;
+	z-index: 900;
+	left: 35px;
+	background-color: #222222;
+	border: 2px solid #111111;
+	border-radius: 25px;
+	
+}
+
+#volumeSliderVal
+{
+	display:none;
+	position: absolute;
+	top: 97px;
+	width: 20px;
+	height: 200px;
+	z-index: 901;
+	left: 40px;
+	background-color: #ffffff;
+	border: 2px solid #AAAAAA;
+	border-radius: 25px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ==== COMMON ===== */
+
+#time
+{
+	width: 880px;
+}
+/* Progress Bar */
+#progressBarBG 
+{ 
+	position: absolute;
+	left: 0px;
+	top: 46px;
+	width: 880px;
+	height: 18px;
+	background-color: #222222;
+	margin-left: 20px;
+	margin-right: 20px;
+} 
+
+ 
+#progressBar 
+{ 
+	position: absolute;
+	left: 0px;
+	top: 49px;
+	height: 12px;
+	background-color: #ff0000;
+	margin-left: 20px;
+	margin-right: 20px
+} 
+
+
+
+

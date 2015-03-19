@@ -1,0 +1,644 @@
+
+/* Defaults */
+
+*
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    position: relative;
+    color:#FFFFFF;
+    background-color: transparent;
+}
+
+/* Layout */
+body
+{
+    width: 960px; 
+    height: 540px;
+    position: absolute;
+    display: block;
+    float: left;
+    top: 0px;
+    left: 0px;
+    overflow:hidden;
+}
+
+#main
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+     overflow:hidden;
+}
+
+#settingsPanel
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+}
+
+#advancedSettingsPanel
+{
+	 position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+     z-index: 400;
+     display:none;
+}
+
+#parentalControlPanel
+{
+	 position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+     z-index: 400;
+     display:none;
+}
+
+#aboutPanel
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+}
+
+#questionPopup
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+}
+
+#question2Popup
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+}
+
+#errorPopup
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+}
+
+#streamErrorPopup
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+     z-index:450;
+}
+
+#welcomePanel
+{
+     position: absolute;
+     left: 0px; top: 0px;
+     width: 960px; height: 540px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------*/
+/* Loading /setup Screen */
+
+
+#loading
+{
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 960px; height: 540px;	
+    z-index: 10;
+    background-color: #000000;
+	color: #ffffff;  
+	z-index:301;   
+}
+
+#loadingtxt
+{
+	left: 0px;
+    top: 200px;
+    width: 960px;
+    text-align: center;
+    z-index:301;
+}
+
+#loadingimg
+{
+	left: 400px;
+    top: 200px;
+    background-image:url("../Images/logo.png");
+    width: 150px;
+    height: 135px;
+    z-index:301;
+}
+
+#spinner
+{
+	left:450px;
+	top:220px;
+	width: 32px;
+    height: 32px;
+    z-index:301;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------------*/
+/* Main Screen */
+
+
+#logo
+{
+	position: absolute;
+	top: 0px;
+	height: 35px;
+	width: 100%;
+    background-image: url("../Images/BgLogo.PNG");
+    background-repeat:repeat-x;
+    font-size:25px;
+    padding-top:3px;
+    padding-left:20px;
+    z-index:10;
+}
+
+/* Right Half */
+
+#rightHalf
+{
+    position: absolute;
+    left:420px; top: -5px;
+    width: 540px; height: 540px;
+    background-image:url("../Images/videoBox/rightHalf.png");
+}
+
+#description_top
+{
+    position:absolute;
+    left:30px; top:330px;
+    width:488px; height:50px;
+    background-image:url("../Images/descriptionBox/description_top.png");
+    display: none;
+}
+
+#description_bottom
+{
+    position:absolute;
+    left:30px; top:440px;
+    width:488px; height:50px;
+    background-image:url("../Images/descriptionBox/description_bottom.png");
+    display: none;
+}
+
+#description
+{
+    position:absolute;
+    left:45px; top:400px;
+    width:458px; height:80px;
+    
+    text-align:left;
+    font-size:11pt;
+    overflow:hidden;
+    text-overflow : ellipsis;
+	display: none;
+}
+
+
+#now_top
+{
+    position:absolute;
+    left:30px; top:275px;
+    width:488px; height:50px;
+    background-image:url("../Images/descriptionBox/description_top.png");
+}
+
+#now_bottom
+{
+    position:absolute;
+    left:30px; top:325px;
+    width:488px; height:50px;
+    background-image:url("../Images/descriptionBox/description_bottom.png");
+}
+
+#next_top
+{
+    position:absolute;
+    left:30px; top:390px;
+    width:488px; height:50px;
+    background-image:url("../Images/descriptionBox/description_top.png");
+}
+
+#next_bottom
+{
+    position:absolute;
+    left:30px; top:440px;
+    width:488px; height:50px;
+    background-image:url("../Images/descriptionBox/description_bottom.png");
+}
+
+#nowtext
+{
+	position:absolute;
+	left: 40px;
+	top: 190px;
+	
+}
+
+#nexttext
+{
+	position:absolute;
+	left: 40px;
+	top: 355px;
+}
+
+#piconlarge
+{
+	position: absolute;
+	left: 30px;
+	top: 70px;
+	width: 100px;
+	height: 100px;
+	z-index:120;
+}
+
+#piconlist
+{
+	position: absolute;
+	left: 310px;
+	top: 60px;
+	z-index: 120;
+}
+
+#nowbox
+{
+    background-color: #333333;
+	box-shadow: 8px 8px 5px #222222;
+	border: 1px solid #333333;
+	border-radius: 25px;
+	height: 150px;
+	width: 480px;
+	top: 180px;
+	left: 25px;
+}
+
+#nextbox
+{
+    background-color: #333333;
+	box-shadow: 8px 8px 5px #222222;
+	border: 1px solid #333333;
+	border-radius: 25px;
+	height: 150px;
+	width: 480px;
+	top: 190px;
+	left: 25px;
+}
+
+
+/* Left Half */
+#leftHalf
+{
+    position:absolute;
+    left: 0px; top:0px;
+    width:420px; height:540px;
+    background-color: black;
+}
+
+#videoList
+{
+    position:absolute;
+    left:30px; top:55px; 
+    width: 390px; height:430px;
+    background-color: #333333;
+	box-shadow: 8px 8px 5px #222222;
+	border: 1px solid #333333;
+	border-radius: 25px;
+}
+
+#video0
+{
+    position:absolute;
+    left:30px; top:95px;
+    width:330px; height:47px;
+    
+    background-repeat:no-repeat; 
+    padding-left:20px;
+    padding-top:10px;
+}
+
+#video1
+{
+    position:absolute;
+    left:30px; top:155px;
+    width:330px; height:47px;
+    
+    background-repeat:no-repeat; 
+    padding-left:20px;
+    padding-top:10px;
+}
+
+#video2
+{
+    position:absolute;
+    left:30px; top:215px;
+    width:330px; height:47px;
+    
+    background-repeat:no-repeat; 
+    padding-left:20px;
+    padding-top:10px;
+}
+
+#video3
+{
+    position:absolute;
+    left:30px; top:275px;
+    width:330px; height:47px;
+    
+    background-repeat:no-repeat; 
+    padding-left:20px;
+    padding-top:10px;
+}
+
+#video4
+{
+    position:absolute;
+    left:30px; top:335px;
+    width:330px; height:47px;
+    
+    background-repeat:no-repeat; 
+    padding-left:20px;
+    padding-top:10px;
+}
+
+#videoCount
+{
+	position: absolute;
+	left: 310px;
+	top: 30px;
+	width: 60px;
+	height: 20px;
+	text-align: left;
+	font-size: 12px;
+}
+
+#previous
+{
+    position:absolute;
+    left:210px; top:80px;
+    width:30px; height:30px;
+    background-image:url("../Images/listBox/previous.png");
+    opacity:0.2;
+}
+
+#next
+{
+    position:absolute;
+    left:210px; top:438px;
+    width:30px; height:30px;
+    background-image:url("../Images/listBox/next.png");
+    opacity:0.2;
+}
+
+.style_videoList
+{    
+    color:#FFFFFF;
+    text-align:left;
+    font-size:20px;
+}
+
+#navi
+{
+	position: absolute;
+	top: 505px;
+	height: 35px;
+	width: 100%;
+    background-image: url("../Images/BgNavigator.png");
+    background-repeat:repeat-x;
+	
+}
+
+#settingsPanel
+{
+	z-index:300;
+}
+
+DIV#settings DIV#navi
+{
+	z-index:300;
+}
+
+#help_navi
+{
+    position:absolute;
+    left:25px; top:5px; 
+    width:915px; height:28px;
+}
+
+.style_navi {
+    bottom:4px;
+    height:20px;
+    font-size:20px;
+}
+
+.style_navi_disabled {
+    bottom:4px;
+    height:20px;
+    font-size:20px;
+    color: #444444;
+}
+
+#streamMode
+{
+	display:inline;
+}
+
+#recMode
+{
+	display:inline;
+}
+
+#bouquetDesc
+{
+	position: absolute;
+	left: 15px;
+	top: 65px;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 370px;
+}
+
+#sf-service-videoplayer-mini-infobar
+{
+	display:none !important;
+}
+
+
+
+#nowprog
+{
+    font-size: 10pt;
+    font-weight: bold;
+    height: 20px;
+    left: 47px;
+    position: absolute;
+    top: 215px;
+    width: 360px;
+    overflow:hidden;
+}
+
+#nowtime
+{
+	left: 415px;
+    position: absolute;
+    top: 215px;
+    font-size: 10pt;
+}
+
+
+#nowdesc
+{
+    height: 95px;
+    left: 47px;
+    position: absolute;
+    top: 230px;
+    width: 450px;
+    text-align:left;
+    font-size:9pt;
+    overflow:hidden;
+    text-overflow : ellipsis;
+}
+
+#nextprog
+{
+    font-size: 10pt;
+    font-weight: bold;
+    height: 20px;
+    left: 47px;
+    position: absolute;
+    top: 380px;
+    width: 360px;
+    overflow:hidden;
+}
+
+#nexttime
+{
+	left: 415px;
+    position: absolute;
+    top: 380px;
+    font-size: 10pt;
+}
+
+
+#nextdesc
+{
+    position:absolute;
+    left:47px; 
+    top:396px;
+    width:450px; 
+    height:95px;
+    text-align:left;
+    font-size:9pt;
+    overflow:hidden;
+    text-overflow : ellipsis;
+}
+
+#settings
+{
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 960px; height: 540px;	
+    z-index: 10;
+    background-color: #000000;
+	color: #ffffff;  
+	z-index:200;
+	display:none;   
+}
+
+
+
+/* For the welcome screen */
+ol {
+margin-left: 60px;
+margin-top: 20px;
+margin-bottom: 30px;
+}
+
+ul {
+margin-left: 35px;
+}
+
+#mainClock
+{
+	display:block;
+	float:left;
+	position:absolute;
+	left:840px;
+	top:9px;
+}
+
+.listText {
+top: -12px;
+}
+
+#pleaseWait
+{
+	background-color:444444;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ERROR Screen */
+
+
+#ErrorIcon 
+{
+	width: 100px;
+	height: 100px;
+}
+
+#ErrorHeader 
+{
+	color: red;
+	font-size: 40pt;
+	position: absolute;
+	top: 25px;
+}
+
+#errorText 
+{
+	width: 80%;
+	position: absolute;
+	top: 118px;
+	z-index: 40;
+	left: 20px;
+}
+
+#errorDetail 
+{
+	position: absolute;
+	top: 275px;
+	left: 25px;
+}
+
+#errorDetailMessage 
+{
+	color: #888888;
+	font-size:16pt;
+}
+
+#errorTextHeader 
+{
+	color: #888888;
+	font-size:16pt;
+}
+
+#timeInfo
+{
+	display:block;
+	float:left;
+	position: absolute;
+	padding-left: 5px;
+	padding-top: 5px;
+}

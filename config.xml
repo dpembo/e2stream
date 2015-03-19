@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns='http://www.samsung.com/'>
+    <previewjs>PreviewVideoTutorial</previewjs>
+    <type>user</type>
+    <cpname/>
+    <cplogo/>
+    <cpauthjs/>
+      <ThumbIcon>Images/icon/Tutorial_Video_106.png</ThumbIcon>
+    <BigThumbIcon>Images/icon/Tutorial_Video_115.png</BigThumbIcon>
+    <ListIcon>Images/icon/Tutorial_Video_85.png</ListIcon>
+    <BigListIcon>Images/icon/Tutorial_Video_95.png</BigListIcon>
+  
+    <ver>0.0</ver>
+    <mgrver/>
+    <fullwidget>y</fullwidget>
+	<movie>y</movie>
+    <srcctl>y</srcctl>
+    <ticker>n</ticker>
+    <childlock>n</childlock>
+    <audiomute>n</audiomute>
+    <videomute>n</videomute>
+    <dcont>y</dcont>
+    <widgetname>E2Stream</widgetname>
+    <description>Stream from your Enigma2 satellite box to your Samsung smart TV</description>
+    <width>960</width>
+    <height>540</height>
+    <author>
+        <name>Pembo</name>
+        <email>e2stream@pembo.co.uk</email>
+        <link>http://www.pembo.co.uk/e2stream</link>
+        <organization>Pembo.co.uk</organization>
+    </author>
+<autoUpdate>y</autoUpdate>
+</widget>

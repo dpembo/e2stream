@@ -1,0 +1,752 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/div/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Enigma Stream</title>
+
+        <!-- Common widget API -->
+        <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/Widget.js'></script>
+        <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/TVKeyValue.js'></script>
+        <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/af/2.0.0/loader.js'></script>
+        
+        <script type="text/javascript" language='javascript' src="$MANAGER_WIDGET/Common/webapi/1.0/deviceapis.js"></script>
+        <script type="text/javascript" language='javascript' src="$MANAGER_WIDGET/Common/webapi/1.0/webapis.js"></script>
+                 
+        <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/jquery.js'></script>
+		<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/core.js'></script>	
+		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/af/2.0.0/loader.js"></script>
+		
+		<script type='text/javascript' language="javascript" src='$MANAGER_WIDGET/Common/API/Plugin.js'></script>
+		
+		<script type='text/javascript' language="javascript" src='$MANAGER_WIDGET/Common/Plugin/Define.js'></script>
+		
+		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/webapi/1.0/webapis.js"></script>
+        
+        <script src="$CAPH/1.0.0/caph-level1-unified.min.js"></script>
+        
+  		<!-- Widget code -->
+        <script language="javascript" type="text/javascript" src="Javascript/Main.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/Server.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/Data.js"></script>
+       
+        <script language="javascript" type="text/javascript" src="Javascript/PlayerNew.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/PlayerLegacy.js"></script>
+        
+        <script language="javascript" type="text/javascript" src="Javascript/Audio.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/VideoOverlay.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/Display.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/Settings.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/TVMW.js"></script>
+            
+      	<script language="javascript" type="text/javascript" src="Javascript/Picon.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Logger.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Utilities.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/SlidingWindow.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Alert.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/ParentalSettings.js"></script>
+		
+		<script language="javascript" type="text/javascript" src="Javascript/LastChannel.js"></script>
+		
+
+
+	<!-- Plugins -->
+        <object id="pluginPlayer1" border=0 classid="clsid:SAMSUNG-INFOLINK-SEF"></object>
+        <object id="pluginAudio1" border=0 classid="clsid:SAMSUNG-INFOLINK-SEF"></object>
+        <object id='pluginObjectTVMW' border=0 classid='clsid:SAMSUNG-INFOLINK-TVMW'></object>
+        <object id="pluginObjectTVMW1" border=0 classid="clsid:SAMSUNG-INFOLINK-SEF"></object>
+        <object id='pluginObjectNNavi' border=0 classid='clsid:SAMSUNG-INFOLINK-NNAVI' style='  opacity:0.0;background-color:#000000;width:0px;height:0px;'></object>
+         <object id='pluginWindow' classid='clsid:SAMSUNG-INFOLINK-WINDOW' style='visibility:hidden; position:absolute; width: 0; height: 0; opacity: 0;'></object>
+        <object id='pluginObjectTV' border=0 classid='clsid:SAMSUNG-INFOLINK-TV'  style='opacity:0.0;background-color:#000000;width:0px;height:0px;'></object>
+        <object id='pluginObjectNetwork'    classid='clsid:SAMSUNG-INFOLINK-NETWORK'    style='opacity:0.0; background-color:#000000;width:0px;height:0px;'></object>
+             
+		 <!-- Volume OSD  http://tedshd.logdown.com/posts/177103-samsung-samrt-tv-volume-osd -->
+
+      
+		 
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="CSS/Main.css" type="text/css">
+		<link rel="stylesheet" href="CSS/infobar.css" type="text/css">
+		<link rel="stylesheet" href="CSS/dialog.css" type="text/css">
+		<link rel="stylesheet" href="CSS/settings.css" type="text/css">
+		<link rel="stylesheet" href="CSS/debug.css" type="text/css">
+
+
+        <!-- Plugins -->
+                
+    </head>
+
+    <body onload="Main.onLoad();" onunload="Main.onUnload();">
+        <!-- Dummy anchor as focus for key events -->
+        <a href='javascript:void(0);' id='anchor' onkeydown='Main.keyDown();'></a>
+		<a href='javascript:void(0);' id='stopkeys'></a>
+        <!-- Layout begins -->
+		
+		<div id="player_container"></div>
+		
+        <div id="startup">
+        </div>
+        
+        <div id="debug">
+        </div>
+        
+        <!--  ***************************** LOADING ********************************************* -->
+        
+        <div id="loading">
+        
+        <div id="loadingimg"></div>
+        <div id="loadingtxt">Initialising... Please wait</div>
+        <div id="spinner">
+        <img src="Images/spinner.gif"/>
+        </div>
+        
+        </div>
+       
+        <!--  ****************************** WELCOME ******************************************* -->
+        <div id="welcomePanel">
+        
+         	<div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X</div>
+        
+	        <div class="fields">
+	        	<span id="idno" style="display:none"></span>
+		        <label id="instructions">
+		        Welcome to E2Stream. The Enigma2 SMART TV Streamer<br>If you like this, please donate at <span style="text-decoration: underline">htp://www.pembo.co.uk/e2stream</span>
+		        <br>
+		        Before we can start, please ensure you:
+		        
+		        <ol>
+		        <li>Have an Enigma 2 based set top box (STB)</li>
+		        <li>You know the IP Address of the STB</li>
+		        <li>Open webif is installed and:</li>
+		        	<ul>
+		        		<li>is enabled</li>
+		        		<li>running on port 80</li>
+		        		<li>HTTP Authentication is <b>NOT</b> enabled</li>
+		        	</ul>
+		        <li>You have the transcoding plugin installed if you intend to use transcoded streams</li>
+		        <li>You know the streaming ports (if you've changed from the defaults)</li>
+		        </ol>
+		        
+		        Press <img src="Images/navi/green.png"> to continue with the setup process
+		        </label>
+		    </div>
+	
+	        <div id="navi">
+	            <div id="help_navi">
+	                <img src="Images/navi/green.png"></img>
+	                &nbsp<a class="style_navi">Continue</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	            </div>
+	        </div>
+	    
+        </div>
+        
+        <!--  ****************************** SETTINGS ****************************************** -->
+        <div id="settingsPanel">
+        
+        <div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X / Settings</div>
+        
+        <div class="fields">
+        
+	        <label id="instructions">Please input the IP Address and ports of the Enigma2 set top box below</label>
+	        
+	        <label id="iplabel">IP Address:</label>
+	        <span id="f1" class="inputTxtfocus"></span><span id="f1point">.</span>
+	        <span id="f2" class="inputTxt"></span><span id="f2point">.</span>
+	        <span id="f3" class="inputTxt"></span><span id="f3point">.</span>
+	        <span id="f4" class="inputTxt"></span>
+	        
+	        
+	        
+	        <label id="streamlabel">Stream Port:</label>
+	        <span id="f5" class="inputTxt"></span>
+	        
+			<div id="disableTranscodeInput" class="transcodeNotDisabled"></div>
+	        <label id="translabel">Transcode Port:</label>
+	        <span id="f6" class="inputTxt"></span>
+	        
+	        <div id="zapSection">
+	        <label id="zaplabel">Zap to Channel before streaming</label>
+        	<span id="f7" class="inputTxt"><span id="f7val" class="radio"></span></span>
+        	<span id="f7label">Yes</span>
+        	<span id="f8" class="inputTxt"><span id="f8val" class="radioSelected"></span></span>
+        	<span id="f7label2">No</span>
+        	</div>
+
+			<div id="transcodeSection">
+			<label id="transEnablelabel">Transcoding Enabled</label>
+        	<span id="f9" class="inputRadio"><span id="f9val" class="radio"></span></span>
+        	<span id="f10label">Yes</span>
+        	<span id="f10" class="inputRadio"><span id="f10val" class="radioSelected"></span></span>
+        	<span id="f10label2">No</span>
+        	
+			</div>
+
+        </div>
+        
+        <div class="fields_running" id="runsettings">
+        	
+        	<label id="numlabel">Filter Channel Number from Description? <span style="font-style:italic;font-size:10pt;">(e.g. '101 - BBC One' becomes 'BBC One')</span></label>
+        	<span id="f11" class="inputTxt"><span id="f11val" class="radio"></span></span>
+        	<span id="f11label">Yes</span>
+        	<span id="f12" class="inputTxt"><span id="f12val" class="radioSelected"></span></span>
+        	<span id="f11label2">No</span>
+        	
+        	<label id="StartingBouquet">Bouquet to use on startup</label>
+        	<span id="f13pre">&lt;</span><span id="f13" class="inputTxt"></span><span id="f13post">&gt;</span>
+        </div>
+        
+        <div id="navi">
+            <div id="help_navi">
+                <img src="Images/navi/help_ud.png"><img src="Images/navi/help_lr.png"></img>
+                &nbsp;<a class="style_navi">Select Setting</a>&nbsp;&nbsp;&nbsp;
+                <span id="cancelb">
+                <img src="Images/navi/help_red.png"></img>
+                &nbsp;<a class="style_navi">Cancel</a>&nbsp;&nbsp;&nbsp;
+                </span>
+                <img src="Images/navi/green.png"></img>
+                &nbsp;<a class="style_navi">Save</a>&nbsp;&nbsp;&nbsp;
+                <span id="advbutton" style="display:none;">
+                <img src="Images/navi/help_yellow.png"></img>
+                &nbsp;<a class="style_navi">Parental Lock</a>&nbsp;&nbsp;&nbsp;
+                <img src="Images/navi/help_blue.png"></img>
+                &nbsp;<a class="style_navi">Adanced Settings</a>
+                </span>
+                <!--  <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi"><div id="streamMode">Stream</div></a>&nbsp-->
+                <!--  <img src="Images/navi/return.png"></img>
+                &nbsp<a class="style_navi">Return</a>-->
+            </div>
+            
+        </div>
+        
+        </div>
+
+		<!--  *********************PARENTAL CONTROL ****************************************** -->
+        <div id="parentalControlPanel" style="display:none;">
+        
+        <div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X / Parental Control</div>
+        
+        <div class="fields">
+        
+	        <label id="instructions">Please enter a pin to enable the parental Lock features.</label>
+	    	
+	    	<div id="pinSection">
+        	<label id="pinlabel">Pin:</label>
+	        <span id="p1" class="inputTxtfocus">&nbsp;</span>
+	        <span id="p2" class="inputTxt">&nbsp;</span>
+	        <span id="p3" class="inputTxt">&nbsp;</span>
+	        <span id="p4" class="inputTxt">&nbsp;</span>
+	        <div style="display:none;">
+	        	<span id="p1val"></span>
+	        	<span id="p2val"></span>
+	        	<span id="p3val"></span>
+	        	<span id="p4val"></span>
+	        </div>
+        	</div>
+        	
+	    	<div id="lockSettingsSection">
+	        <label id="lockSettingslabel">Lock Settings</label>
+        	<span id="p5" class="inputRadio"><span id="p5val" class="radio"></span></span>
+        	<span id="p5label">On</span>
+        	<span id="p6" class="inputRadio"><span id="p6val" class="radioSelected"></span></span>
+        	<span id="p6label">Off</span>
+        	</div>
+        	
+        	<div id="lockBouquetSection">
+	        <label id="lockBouquetLabel">Lock Starting Bouquet</label>
+        	<span id="p7" class="inputRadio"><span id="p7val" class="radio"></span></span>
+        	<span id="p7label">On</span>
+        	<span id="p8" class="inputRadio"><span id="p8val" class="radioSelected"></span></span>
+        	<span id="p8label">Off</span>
+        	</div>
+
+        </div>
+        
+        <div id="navi">
+            <div id="help_navi">
+                <img src="Images/navi/help_ud.png"><img src="Images/navi/help_lr.png"></img>
+                &nbsp<a class="style_navi">Select Setting</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span id="cancelb">
+                <img src="Images/navi/help_red.png"></img>
+                &nbsp<a class="style_navi">Cancel</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </span>
+                <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi">Save</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <!--  <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi"><div id="streamMode">Stream</div></a>&nbsp-->
+                <!--  <img src="Images/navi/return.png"></img>
+                &nbsp<a class="style_navi">Return</a>-->
+            </div>
+            
+        </div>
+        
+        </div>
+
+        <!--  *********************ADVANCED SETTINGS ****************************************** -->
+        <div id="advancedSettingsPanel">
+        
+        <div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X / Advanced</div>
+        
+        <div class="fields">
+        
+	        <label id="instructions">Advanced Settings</label>
+	    
+      	
+	    	<div id="playerSection">
+	        <label id="playerlabel">Player Implementation (Use Legacy for early model compatibility)</label>
+        	<span id="a1" class="inputRadiofocus"><span id="a1val" class="radioSelected"></span></span>
+        	<span id="a1label">Default</span>
+        	<span id="a2" class="inputRadio"><span id="a2val" class="radio"></span></span>
+        	<span id="a2label">Legacy</span>
+        	</div>
+        	
+        	<label id="mtlabel">Multi-Transcoder settings (for users of multi-transcoder plugin only)</label>
+        	
+        	<div id="multiTranscoderSection">
+	        	<label id="enableMtLabel">Enable Multi-transcoder settings</label>
+	        	<div class="fieldline">
+	        	<span id="a3" class="inputRadio"><span id="a3val" class="radio"></span></span>
+	        	<span id="a3label">On</span>
+	        	<span id="a4" class="inputRadio"><span id="a4val" class="radioSelected"></span></span>
+	        	<span id="a4label">Off</span>
+	        	</div>
+	        	<div id="disabledBack" class="transcodeFieldsDisabled"></div>
+	        	<div class="transcoderFields">
+		        	<div class="fieldline">
+		   	     		<label class="verticalCentreTextFieldLabel" id="a5Label">Bitrate:</label>
+		 	       		<span id="a5" class="inputTxt"></span>
+		        	</div>
+		        	<div class="fieldline">
+			        	<label class="verticalCentreTextFieldLabel" id="a6Label">Width:</label>
+			        	<span id="a6" class="inputTxt"></span>
+			        	<label class="verticalCentreTextFieldLabel" id="a7Label">Height:</label>
+			        	<span id="a7" class="inputTxt"></span>
+		        	</div>
+		        	<div class="fieldline">
+		        		<label class="verticalCentreTextFieldLabel" id="a8Label">Aspect Ratio:</label>
+		        		<span id="a8" class="inputTxt"></span>
+		        		<label class="verticalCentreTextFieldLabel" id="a9Label">Interlaced:</label>
+		        		<span id="a9" class="inputTxt"></span>
+		        	</div>
+	        	</div>
+        	</div>
+        	
+        </div>
+        
+        <div id="navi">
+            <div id="help_navi">
+                <img src="Images/navi/help_ud.png"><img src="Images/navi/help_lr.png"></img>
+                &nbsp<a class="style_navi">Select Setting</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span id="cancelb">
+                <img src="Images/navi/help_red.png"></img>
+                &nbsp<a class="style_navi">Cancel</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </span>
+                <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi">Save</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <!--  <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi"><div id="streamMode">Stream</div></a>&nbsp-->
+                <!--  <img src="Images/navi/return.png"></img>
+                &nbsp<a class="style_navi">Return</a>-->
+            </div>
+            
+        </div>
+        
+        </div>
+
+        <!--  ****************************** POPUP FOR STREAM ERROR DISPALY ********************** -->
+        <div id="streamErrorPopup" style="display:none;">
+        
+        	<div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X</div>
+        	
+        	<div class="fields">
+        	
+        		<img id="ErrorIcon" src="Images/error.png"></img>
+        		<label id="ErrorHeader">
+        		Error<br><br>
+        		</label>
+				
+				<span id="streamerrorText"></span>
+			
+				<div id="errorDetail">
+				<span id="errorTextHeader">Error Message:</span>
+				<pre id="streamerrorDetailMessage"></pre>
+				</div>
+				
+        	</div>
+        	
+        	<div id="navi">
+        	
+        	
+            <div id="help_navi">
+            
+                <img src="Images/navi/help_red.png"></img>
+                &nbsp<a class="style_navi">Channel List</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                
+                <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi">Retry</a>
+            </div>
+            
+        </div>
+        </div>
+        
+        
+        <!--  ****************************** POPUP FOR ERROR DISPALY ********************** -->
+        <div id="errorPopup" style="display:none;">
+        
+        	<div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X</div>
+        	
+        	<div class="fields">
+        	
+        		<img id="ErrorIcon" src="Images/error.png"></img>
+        		<label id="ErrorHeader">
+        		Error<br><br>
+        		</label>
+				
+				<span id="errorText"></span>
+			
+				<div id="errorDetail">
+				<span id="errorTextHeader">Error Message:</span>
+				<pre id="errorDetailMessage"></pre>
+				</div>
+				
+        	</div>
+        	
+        	<div id="navi">
+        	
+        	
+            <div id="help_navi">
+            
+                <img src="Images/navi/help_red.png"></img>
+                &nbsp<a class="style_navi">Change Settings</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                
+                <img src="Images/navi/green.png"></img>
+                &nbsp<a class="style_navi">Retry Connection</a>
+            </div>
+            
+        </div>
+        </div>
+        
+        <!--  ****************************** POPUP FOR FILTER CHANNELS NO ********************** -->
+        <div id="questionPopup">
+        
+        	<div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X</div>
+        
+	        <div class="fields">
+	        
+	        	<label id="instructions">It looks like your channel names have a number prefixed, e.g.<br><br>
+	        	<span id="exampleChannel"></span> <br><br>
+	        	Do you want to filter out these numbers in the channel list?<br>
+	        	<span style="font-style:italic;font-size:10pt;">Note, if you change your mind, you can edit this in the settings screen later!</span>
+	        	</label>
+	        	
+		    </div>    
+	        <div class="fields_running_popup" id="runsettingspopup">
+        	
+	        	<span id="f17" class="inputTxtfocus"><span id="f17val" class="radioSelected"></span></span>
+	        	<span id="f17label">Yes</span>
+	        	<span id="f18" class="inputTxt"><span id="f18val" class="radio"></span></span>
+	        	<span id="f18label">No</span>
+        	</div>
+	        
+	        <div id="navi">
+	            <div id="help_navi">
+	                <img src="Images/navi/help_lr.png"></img>
+	                &nbsp<a class="style_navi">Select Setting</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	                <img src="Images/navi/green.png"></img>
+	                &nbsp<a class="style_navi">Save</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	                <!--  <img src="Images/navi/green.png"></img>
+	                &nbsp<a class="style_navi"><div id="streamMode">Stream</div></a>&nbsp-->
+	                <!--  <img src="Images/navi/return.png"></img>
+	                &nbsp<a class="style_navi">Return</a>-->
+	            </div>
+	            
+	        </div>
+        </div>
+         
+         <!--  ****************************** POPUP FOR Default Bouquet ********************** -->
+        <div id="question2Popup">
+        
+        	<div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X</div>
+        
+	        <div class="fields">
+	        	<label id="instructions">Finally, which Bouquet would you like to show on startup?<br>You can select any bouquet to always start E2Stream with, or use the 'Last Active' choice to start with the previously active bouquet.</label>
+		    </div>    
+	        <div class="fields_running_popup2" id="runsettingspopup2">
+        	
+        		<span id="f19pre">&lt;</span><span id="f19" class="inputTxtfocus"></span><span id="f19post">&gt;</span>
+        	</div>
+	        
+	        <div id="navi">
+	            <div id="help_navi">
+	                <img src="Images/navi/help_lr.png"></img>
+	                &nbsp<a class="style_navi">Select Bouquet</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	                <img src="Images/navi/green.png"></img>
+	                &nbsp<a class="style_navi">Save</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	                <!--  <img src="Images/navi/green.png"></img>
+	                &nbsp<a class="style_navi"><div id="streamMode">Stream</div></a>&nbsp-->
+	                <!--  <img src="Images/navi/return.png"></img>
+	                &nbsp<a class="style_navi">Return</a>-->
+	            </div>
+	            
+	        </div>
+        </div>
+        
+        <div id="aboutPanel">
+            <div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X</div>
+            <div class="fields">
+	        	<label id="instructions">E2Stream Copyright &copy;2014 Pembo.co.uk
+	        	<br>
+	        	<img src="Images/pembo.png">
+	        	<br><br>
+	        	The Enigma2 Smart TV Streamer<br><br>
+	        	This is the result of many man hours of development and testing effort<br>
+	        	For any comments, question, requests, bugs, or to donate for continued development and support
+	        	please head over to<br><span style="text-decoration:underline;">http://www.pembo.co.uk/e2stream</span>
+	        	
+	        	<br><br>
+	        	Device ID: <span id="deviceId"></span><br>
+	        	Picon Mode:<span id="piconmode"></span>
+	        	
+	        	</label>
+		    </div>
+		    
+		    <div id="navi">
+	            <div id="help_navi">
+	                <img src="Images/navi/help_red.png"></img>
+	                &nbsp<a class="style_navi">OK</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	            </div>
+	            
+	        </div>
+        </div>
+		             
+        <!--  ******************************** ALERT ******************************************* -->
+ 		<div id="exitPopup-fadeout">
+        </div>
+           
+        <div id="exitPopup">
+        	<div id="exitPopup-Header">Exit?</div>
+       		<div id="exitPopup-Body">
+          		<div id="exitPopup-Text">Are you sure you want to leave E2Stream?<br>Please confirm using one of the options below</div>
+          		<div id="exitPopup-o1"><img id="o1-img" src="Images/navi/help_red.png"><span id="o1-text">Return to E2Stream</span></div>
+          		<div id="exitPopup-o2"><img id="o2-img" src="Images/navi/green.png"><span id="o2-text">Quit E2Stream</span></div>
+          		<div id="exitPopup-o3"><img id="o3-img" src="Images/navi/help_yellow.png"><span id="o3-text">Quit E2Stream and Standby E2 box</span></div>
+          		<div id="exitPopup-o4"><img id="o4-img" src="Images/navi/help_blue.png"><span id="o4-text">Quit E2Stream and Deep Standby E2 box</span></div>
+          	</div>
+         </div>       
+            
+        <!--  ******************************** MAIN ******************************************** -->    
+		<div id="main">
+            
+
+            
+            <div id="logo"><img src="Images/logo-transparent.png" height="30" width="40"/> E2Stream vX.X
+            <span id="mainClock">--:--:--</span>
+            </div>
+            
+            <div id ="rightHalf">
+            	<div id="piconlarge"></div>
+            	<div id="piconlist"></div>
+                <div id="videoBox_top"></div>
+                <div id="videoBox_left"></div>
+                <div id="videoBox_right"></div>
+                 
+                <div id="videoBox_bottom" style="display:none;z-index:300;">
+                    <div id="time">
+                        <!-- <div id="progressBarBG">
+                            <div id="progressBar"></div>
+                        </div>-->
+                        <!-- <div id="timeInfo"></div>-->
+                    </div>
+                    <div id="volume">
+                        <div id="volumeIcon"></div>
+                        <div id="volumeBarBG">
+                            <div id="volumeBar"></div>
+                        </div>
+                        <div id="volumeInfo"></div>
+                    </div>
+                    <div id="videoControl">
+                        <div id="rewind"></div>
+                        <div id="play"></div>
+                        <div id="stop"></div>
+                        <div id="pause"></div>
+                        <div id="forward"></div>
+                    </div>
+                    <div id="status"></div>
+                </div>
+                <div id="description_top"></div>
+                <div id="description_bottom"></div>
+                <div id="description"></div>
+                
+                
+                
+                <div id="nowbox"></div>
+                <div id="nowtext">Now</div>
+                <!-- <div id="now_top"></div>
+                <div id="now_bottom"></div>-->
+                <div id="nowprog"></div>
+                <div id="nowtime"></div>
+                <div id="nowdesc"></div>
+                
+                
+                
+                <div id="nextbox"></div>
+                <div id="nexttext">Next</div>
+                <!--  <div id="next_top"></div>
+                <div id="next_bottom"></div>-->
+                <div id="nextprog"></div>
+                <div id="nexttime"></div>
+                <div id="nextdesc"></div>
+                
+            </div>
+            
+            <div id="leftHalf">
+                <div id="videoList" class="style_videoList">
+                    <div id="video0">
+	                    <img height="30" width="50" id="picon_0" src="Images/noicon.png">
+    	                <span class="listText" id="desc_0"></span>
+                    </div>
+                    <div id="video1">
+                    	<img height="30" width="50" id="picon_1" src="Images/noicon.png">
+                    	<span class="listText" id="desc_1"></span>
+                    </div>
+                    <div id="video2">
+                    	<img height="30" width="50" id="picon_2" src="Images/noicon.png">
+                    	<span class="listText" id="desc_2"></span>
+                    </div>
+                    <div id="video3">
+                    	<img height="30" width="50" id="picon_3" src="Images/noicon.png">
+                    	<span class="listText" id="desc_3"></span>
+                    </div>
+                    <div id="video4">
+                    	<img height="30" width="50" id="picon_4" src="Images/noicon.png">
+                    	<span class="listText" id="desc_4"></span>
+                    </div>
+                    <div id="videoCount"></div>
+                    <div id="bouquetDesc"></div>
+                </div>
+                <div id="previous"></div>
+                <div id="next"></div>
+            </div> 
+                        
+            <div id="navi">
+                <div id="help_navi">
+                    <img src="Images/navi/help_ud.png"></img>
+                    <a class="style_navi">Channel</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="Images/navi/help_lr.png"></img>
+                    <a class="style_navi">Bouquets</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <!--  <img src="Images/navi/enter.png"></img>-->
+                    <img src="Images/navi/help_enter.png"></img>
+                    <a class="style_navi">Play</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img id="redimg" src="Images/navi/help_red.png"></img>
+                    <a id="reddesc" class="style_navi">Settings</a>&nbsp;&nbsp;&nbsp;
+                    <img style="display:none;" src="Images/navi/green.png"></img>
+                    <a style="display:none;" class="style_navi"><div id="streamMode">Transcode</div></a>&nbsp;&nbsp;
+                    
+                    <img src="Images/navi/help_yellow.png"></img>
+                    <a class="style_navi"><div id="recMode">Recordings</div></a>&nbsp;&nbsp;
+                    
+                    <img src="Images/navi/help_blue.png"></img>
+                    <a class="style_navi">About</a>
+                    
+                    <!--  <img src="Images/navi/return.png"></img>
+                    &nbsp<a class="style_navi">Return</a>-->
+                </div>
+                
+            </div>
+        </div>
+        <div id="video_overlay" class="hide" style="z-index:400;">
+                       
+            <div id="video_overlay_navi">
+            	<div id="time">
+                        <!--  <div id="progressBarBG">
+                            <div id="progressBar"></div>
+                        </div>-->
+                        <div id="timeInfo"></div>
+                </div>
+
+            </div>
+            <div id="volume">
+            <div id="muteon"><img src="Images/muteon.png" width="90" height="57"></div>
+            <div id="muteoff"><img src="Images/muteoff.png" width="90" height="57"></div>
+            
+            
+            
+            </div>
+            <div id="volumeSlider">&nbsp;</div>
+            <div id="volumeSliderVal">&nbsp;</div>
+            
+            <div id="alertbar">
+            <div id="alertbar-header">Information</div>
+            <div id="alertbar-text">Cannot Skip  whilst Buffering</div> 
+            </div>
+            
+            
+            <div id="audiobar">
+            <div id="audiobar-header">Audio Channel</div>
+            <img id="audiobar-icon" src="Images/muteoff.png" width="30" height="30"></img>
+            <div id="audiobar-text">1 of 1</div> 
+            </div>
+            
+            <div id="infobarDetail">
+            	<div id="nowHeader">NOW</div>
+	            <div id="nowDetail">
+		            <div id="nowDetail-title"></div>
+		            <div id="nowDetail-startTime"></div>
+		            <div id="nowDetail-endTime"></div>
+		            <div id="nowDetail-progress">
+		            	<div id="nowDetail-progressBarBG"></div>
+            			<div id="nowDetail-progressBar"></div>
+		            </div>
+		            <div id="nowDetail-extended"></div>
+		        </div>
+            
+            	<div id="nextHeader">NEXT</div>
+      	    	<div id="nextDetail">
+		            <div id="nextDetail-title"></div>
+		            <div id="nextDetail-startTime"></div>
+		            <div id="nextDetail-endTime"></div>
+		            <div id="nextDetail-progress">
+		            	<div id="nextDetail-progressBarBG"></div>
+            			<div id="nextDetail-progressBar"></div>
+		            </div>
+		            <div id="nextDetail-extended"></div>
+		        </div>
+            </div>
+            
+            <div id="infobar">
+            <div id="infobar-channel">BBC One HD</div>
+            
+            <div id="infobar-audiostreams">
+            <img id="infobar-audiobar-icon" src="Images/muteoff.png" width="30" height="30"></img>
+            <div id="infobar-audiostreams-text">-</div>
+            </div>
+            
+            <div id="infobar-time">00:00</div>
+            <div id="infobar-nowTime">07:00</div>
+            <div id="infobar-nowDesc">XXXX</div>
+            <div id="infobar-nextTime">09:00</div>
+            <div id="infobar-nextDesc">YYYYY</div>
+            <div id="infobar-piconlarge"><img src="Images/pembo.png"></div>
+			<!-- <div id="infobar-help"><img id="redimg" src="Images/navi/help_red.png"></img>Audio</div>-->
+			</div>
+            
+            <div id="recbar">
+            <div id="recbar-channel">Recording Playback</div>
+            <div id="recbar-audiostreams">
+            <img id="recbar-audiobar-icon" src="Images/muteoff.png" width="30" height="30"></img>
+            <div id="recbar-audiostreams-text">-</div>
+            </div>
+            <div id="time">
+            <div id="progressBarBG"></div>
+            <div id="progressBar"></div>
+            </div>
+            
+            <div id="recbar-time"></div>
+            <div id="recbar-desc">XXXX</div>
+            <div id="recbar-remain">--:--:--</div>
+            
+            </div>
+            
+        </div>
+        
+    </body>
+</html>

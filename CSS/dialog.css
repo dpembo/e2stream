@@ -1,0 +1,89 @@
+/* Popup dialog */
+
+#exitPopup-fadeout
+{
+	position:absolute;
+	display:none;
+	float:left;
+	left:0px;
+	top:0px;
+    width: 960px; 
+    height: 540px;
+	background-color: rgba(10,10,10,0.9);
+	z-index: 925;
+}
+#exitPopup
+{
+	position: absolute;
+	display: none;
+	float: left;
+	left: 230px;
+	width: 460px;
+	top: 100px;
+	height: 300px;
+	z-index: 930;
+	background-color: #333333;
+	box-shadow: 8px 8px 5px #222222;
+	border: 1px solid #111111;
+	border-radius: 25px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;	
+}
+
+#exitPopup-Header 
+{
+border-bottom: 2px solid #FFFFFF;
+margin-bottom: 20px;
+font-weight: bold;
+font-size:16pt;
+}
+
+#exitPopup-Text 
+{
+	padding-bottom: 20px;
+	font-size: 16pt;
+}
+
+#o1-img {
+top: 6px;
+margin-right: 5px;
+}
+
+#o2-img {
+top: 6px;
+margin-right: 5px;
+}
+
+#o3-img {
+top: 6px;
+margin-right: 5px;
+}
+
+#o4-img {
+top: 6px;
+margin-right: 5px;
+}
+
+#exitPopup-o1 {
+font-size: 14pt;
+}
+
+#exitPopup-o2 {
+font-size: 14pt;
+}
+
+#exitPopup-o3 {
+font-size: 14pt;
+}
+
+#exitPopup-o4 {
+font-size: 14pt;
+}
+
+
+#pinEntry {
+font-size: 48pt;
+top: 25px;
+padding-left: 20px;
+}

@@ -1,0 +1,49 @@
+/* DEBUG SETTINGS */
+#debug
+{
+	display:none;
+	position: absolute;
+	left: 440px;
+	top: 40px;
+	width: 520px;
+	height: 462px;
+	background-color: rgba(30,30,30,0.9);
+	color: #ffffff;
+	z-index: 501;
+	font-size: 9pt;
+}
+
+.debug-ERROR
+{
+	color:red;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.debug-FATAL
+{
+	color:red;
+	white-space: nowrap;
+	overflow: hidden;
+	font-weight:bold;
+}
+
+.debug-WARN
+{
+	color:orange;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.debug-DEBUG
+{
+	color:#aaaaaa;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.debug-INFO
+{
+	color:#ffffff;
+	white-space: nowrap;
+	overflow: hidden;
+}
