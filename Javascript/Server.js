@@ -821,10 +821,12 @@ Server.createLocationAndMovieList = function()
 								var titleElement = items[vidindex].getElementsByTagName("e2title")[0];
 								var descriptionElement = items[vidindex].getElementsByTagName("e2description")[0];
 								var linkElement = items[vidindex].getElementsByTagName("e2filename")[0];
+								
 								//Is it a category?
 								var isCategory = false;
 								if (linkElement.firstChild.data.indexOf("1:64:0:0:0:0:0:0:0:0")>=0)isCategory = true;
 
+								
 								//If found the elements, and its not a category
 								if (titleElement && descriptionElement && linkElement && !isCategory)
 								{
@@ -838,7 +840,16 @@ Server.createLocationAndMovieList = function()
 									}
 									else
 									{
-										videoNames[onCount] = titleElement.firstChild.data;
+										if(titleElement.firstChild != null)
+										{
+											videoNames[onCount] = titleElement.firstChild.data;
+										}
+										else
+										{
+											var posfn = linkElement.firstChild.data.lastIndexOf("/");
+											var fn = linkElement.firstChild.data.substring(posfn+1);
+											videoNames[onCount]=fn;
+										}	
 									}
 
 									//var port = "*PORT*";
