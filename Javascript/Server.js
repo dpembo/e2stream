@@ -855,7 +855,7 @@ Server.createLocationAndMovieList = function()
 									//var port = "*PORT*";
 
 									//Port will be replaced at play time
-									videoURLs[onCount] = "http://" + Data.getIPAddress()  +":" + 80 + "/file?file=" + encodeURIComponent(linkElement.firstChild.data);
+									videoURLs[onCount] = "http://" + Data.getIPAddress()  +":*PORT*/file?file=" + encodeURIComponent(linkElement.firstChild.data);
 									videoIDs[onCount] = linkElement.firstChild.data;
 									if(descriptionElement.firstChild!=null)
 									{
