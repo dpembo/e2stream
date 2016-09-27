@@ -22,7 +22,8 @@ var Data =
     nextTime            : "UNSET",
     ipAddress 			: "...",
     removeNumbers		: "N",
-    streamport			: "8001",
+    defaultport			: "80",
+	streamport			: "8001",
 	transcodeport		: "8002",
     streamMode			: 0,
     onBouquet			: 0,
@@ -306,6 +307,17 @@ Data.getStreamPort = function()
 {
 	return this.streamport;
 };
+
+Data.setDefaultPort = function(inDefaultPort)
+{
+	this.defaultport = inDefaultPort;
+};
+
+Data.getDefaultPort = function()
+{
+	return this.defaultport;
+};
+
 
 Data.setTranscodePort = function(inTranscodePort)
 {

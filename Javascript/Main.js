@@ -595,7 +595,10 @@ Main.updateCurrentVideo = function(move,count)
         }
         else
         {
-        	vidUrl = vidUrl.replace("*PORT*",Data.getStreamPort());
+			if(Main.RECORDINGS_LIST == true)
+				vidUrl = vidUrl.replace("*PORT*",Data.getDefaultPort());
+			else
+				vidUrl = vidUrl.replace("*PORT*",Data.getStreamPort());
         }
 
     }
